@@ -1,3 +1,11 @@
+#  -*- coding: utf-8 -*-
+"""
+@blog: http://www.cs.ucf.edu/courses/cap5636/fall2011/nltk.pdf
+
+Practiced on Jun 02, 2017
+@author: Thuong Tran
+@Library: nltk
+"""
 from nltk import word_tokenize, NaiveBayesClassifier
 from nltk import classify
 from nltk import WordNetLemmatizer

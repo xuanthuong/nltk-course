@@ -89,7 +89,7 @@ def extract_features(dictionary, all_mails):
     for word in words:
       wordID = 0
       for j, d in enumerate(dictionary):
-        if d == word: # ??? d[0]
+        if d[0] == word:
           wordID = j
           features_vector[docID, wordID] = words.count(word)
     docID += 1
@@ -110,7 +110,7 @@ def main():
   print ('Start feature extraction...')
   start_time = time.time()
   train_matrix = extract_features(dictionary, train_mails)
-  print('Feature extraction elapsed time is: %s minutes' % (time.time() - start_time)/60)
+  print('Feature extraction elapsed time is: %s minutes' % (time.time() - start_time))
 
   # Training SVM and Naive bayes classifier and its variants
   print ('Start training...')
@@ -119,7 +119,7 @@ def main():
   start_time = time.time()
   model_svm.fit(train_matrix, train_labels)
   model_nb.fit(train_matrix, train_labels)
-  print('training time: %s minutes', (time.time() - start_time)/60)
+  print('training time: %s minutes', (time.time() - start_time))
 
   # Test the unseen mails for Spam
   test_matrix = extract_features(dictionary, test_mails)
